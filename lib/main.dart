@@ -1,20 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Libary File
 
 /// projects' entry point
 /// SKIA / Impeller
 ///
-/// Hot restart (ctl + \) (cmd + shift + \)
-/// Hot reload (ctl + s) (cmd + s)
 main() {
-  print('Entry point');
-  runApp(HelloWorldApp());
+  runApp(HelloWorldApp()); //HelloWorldApp is an application which is put on the runApp function.
 }
 
-class HelloWorldApp extends StatelessWidget {
+class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a widget after using extends means it inherts from statelesswidget
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /// property/attributes
+      /// property/attributes : home,appbar
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
