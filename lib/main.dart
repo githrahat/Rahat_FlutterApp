@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart'; // Libary File
 
-/// projects' entry point
-/// SKIA / Impeller
+
 ///
-main() {
-  runApp(HelloWorldApp()); //HelloWorldApp is an application which is put on the runApp function.
+main() { // projects entry point
+  runApp(HelloWorldApp()); //HelloWorldApp is an application which is put on the runApp widget.
 }
 
 class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a widget after using extends means it inherts from statelesswidget
