@@ -10,7 +10,7 @@ main() {
 class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a widget after using extends means it inherts from statelesswidget
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( //MaterialApp is a predifine class of flutter which indicates to set the apps ui / apps theme
       /// property/attributes : home,appbar
       debugShowCheckedModeBanner: false,
       home: Scaffold(
