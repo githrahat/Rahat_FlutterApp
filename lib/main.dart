@@ -27,10 +27,12 @@ class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a wi
 
       home: homeactivity()
     );
+
   }
 }
 class homeactivity extends StatelessWidget {
   const homeactivity({Key? key}) : super(key: key);
+
 
   MySnackbar(message, context){
     return ScaffoldMessenger.of(context).showSnackBar(
