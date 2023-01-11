@@ -20,8 +20,8 @@ class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a wi
       //==================================
       // These are the settings of MaterialApp, by which we control the application
       debugShowCheckedModeBanner: false, //removes the debugshowcheckmodeBanner
-      theme: ThemeData(primarySwatch: Colors.amber), // sets the color of theme
-      darkTheme: ThemeData(primarySwatch: Colors.brown), // sets the color of the darkTheme
+      theme: ThemeData(primarySwatch: Colors.green), // sets the color of theme
+      darkTheme: ThemeData(primarySwatch: Colors.green), // sets the color of the darkTheme
       color: Colors.green, // sets the primary color
       //=========================================
 
@@ -51,12 +51,46 @@ class homeactivity extends StatelessWidget {
         toolbarOpacity: 1,
         elevation: 0,
         backgroundColor: Colors.green,
-        
+
+
         actions: [
           IconButton(onPressed: (){MySnackbar("Account", context);}, icon: Icon(Icons.account_circle_sharp)),
           IconButton(onPressed: (){MySnackbar("Alarm", context);}, icon: Icon(Icons.access_alarm_rounded)),
           IconButton(onPressed: (){MySnackbar("Comment", context);}, icon: Icon(Icons.comment))
         ],
+      ),
+      body: Center(
+        child: Text('RahatAlam'),
+      ),
+
+     floatingActionButton: FloatingActionButton(
+       elevation: 20,
+       backgroundColor: Colors.green,
+       child: Icon(Icons.arrow_back_ios),
+       onPressed: (){ 
+         MySnackbar('Coming Soon', context);
+       },
+     ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', backgroundColor: Colors.green),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search', backgroundColor: Colors.green),
+          BottomNavigationBarItem(icon: Icon(Icons.perm_contact_calendar_sharp), label: 'Contact', backgroundColor: Colors.green),
+        ],
+
+        onTap: (int index){
+          if(index==0){
+            MySnackbar('Home: Work going on', context);
+          }
+          else if(index==1){
+            MySnackbar('Search: Work going on', context);
+          }
+          else if(index==2){
+            MySnackbar('Contact: Work going on', context);
+          }
+        }
       ),
     );
   }
