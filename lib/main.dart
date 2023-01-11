@@ -51,7 +51,8 @@ class homeactivity extends StatelessWidget {
         toolbarOpacity: 1,
         elevation: 0,
         backgroundColor: Colors.green,
-        
+
+
         actions: [
           IconButton(onPressed: (){MySnackbar("Account", context);}, icon: Icon(Icons.account_circle_sharp)),
           IconButton(onPressed: (){MySnackbar("Alarm", context);}, icon: Icon(Icons.access_alarm_rounded)),
