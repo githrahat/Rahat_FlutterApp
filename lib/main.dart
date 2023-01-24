@@ -69,29 +69,13 @@ class homeactivity extends StatelessWidget {
           ],
         ),
 
-        body: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-
-            TextButton(onPressed: ()
-        {MySnackbar('Iam Text Button', context);},
-        child: Text('Text Button')),
-
-
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(  // it is used inside the Elevated Button, to style it
-          backgroundColor: Colors.green,
-          foregroundColor: Colors.amber,
-          textStyle: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-          shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)
-          ),
-          padding: EdgeInsets.all(5),
-          ),
-        onPressed: (){}, child: Text('Click Here')
-        ),
-            ],
-      )
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+         //Image.asset('assets/images/adroid.jpg'),
+          Image.network('https://i0.wp.com/futurestartup.com/wp-content/uploads/2019/04/Untitled-1.png', height: 200,width: 200, fit: BoxFit.scaleDown)],
+    )
+        
     );
   }
 }
