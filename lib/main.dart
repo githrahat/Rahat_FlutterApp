@@ -1,26 +1,19 @@
-import 'package:flutter/material.dart'; // Libary File
+import 'package:flutter/material.dart';
 
-/// main() -> Entry points of code
-/// runApp() -> Entry points of Apps
-/// MaterialApp, Scaffold, AppBar, Text etc are 'class / Widgets'
-/// home: , appBar: , title: etc are called 'property / attributes'
-///
-main() { // projects entry point
-  runApp(HelloWorldApp()); //HelloWorldApp is an application which is put on the runApp widget.
+
+main() {
+  runApp(HelloWorldApp());
 }
 
-class HelloWorldApp extends StatelessWidget { //HelloWorldApp class becomes a widget after using extends means it inherts from statelesswidget
+class HelloWorldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( //MaterialApp is a predifine class of flutter which indicates to set the apps ui / apps theme. Its also a core component of Flutter
-      /// property/attributes : home,appbar
-      // Scaffold is a class in flutter which provides many widgets
+    return MaterialApp(
 
-      // These are the settings of MaterialApp, by which we control the application
-        debugShowCheckedModeBanner: false, //removes the debugshowcheckmodeBanner
-        theme: ThemeData(primarySwatch: Colors.purple), // sets the color of theme
-        darkTheme: ThemeData(primarySwatch: Colors.purple), // sets the color of the darkTheme
-        color: Colors.purple, // sets the primary color
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.purple),
+        darkTheme: ThemeData(primarySwatch: Colors.purple),
+        color: Colors.purple,
 
         home: homeactivity()
     );
@@ -33,7 +26,6 @@ class homeactivity extends StatelessWidget {
         SnackBar(content: Text(message))
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +44,6 @@ class homeactivity extends StatelessWidget {
       ),
 
       drawer: Drawer(
-        // for converting it into endDrawer, it needs to be endDrawer: Drawer(
         child: ListView(
           children: [
             DrawerHeader(
