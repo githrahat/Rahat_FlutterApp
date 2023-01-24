@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart'; // Libary File
-
-/// main() -> Entry points of code
-/// runApp() -> Entry points of Apps
-/// MaterialApp, Scaffold, AppBar, Text etc are 'class / Widgets'
-/// home: , appBar: , title: etc are called 'property / attributes'
-///
+import 'package:flutter/material.dart';
 
 main() {
   // projects entry point
@@ -36,7 +30,9 @@ class HelloWorldApp extends StatelessWidget {
 }
 
 class homeactivity extends StatelessWidget {
-  const homeactivity({Key? key}) : super(key: key);
+
+  //const homeactivity({Key? key}) : super(key: key);
+  TextEditingController controller = TextEditingController();
 
   MySnackbar(message, context) {
     return ScaffoldMessenger.of(context).showSnackBar(
@@ -69,29 +65,30 @@ class homeactivity extends StatelessWidget {
           ],
         ),
 
-        body: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+        // it floats in the centre
+        //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          showDialog(context: context, builder: (context){
+            return AlertDialog(
+              title: Text('Have you read our conditions?'),
+              content: Text('Everysingle of them'),
+              actions: [
+                TextButton(onPressed: (){}, child: Text('YES')),
+                TextButton(onPressed: (){}, child: Text('NO'))
+              ],
+            );
+          });
+        },
+        child: Icon(Icons.play_arrow),
+          /*
+           For showing any text in the floatingActionButton
 
-            TextButton(onPressed: ()
-        {MySnackbar('Iam Text Button', context);},
-        child: Text('Text Button')),
-
-
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(  // it is used inside the Elevated Button, to style it
-          backgroundColor: Colors.green,
-          foregroundColor: Colors.amber,
-          textStyle: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-          shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20)
-          ),
-          padding: EdgeInsets.all(5),
-          ),
-        onPressed: (){}, child: Text('Click Here')
-        ),
-            ],
-      )
+          floatingActionButton: FloatingActionButton.extended(
+            onPressed: (){},
+            label: Text('Press'),
+           */
+    ),
     );
   }
 }
