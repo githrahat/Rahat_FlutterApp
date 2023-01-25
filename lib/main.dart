@@ -53,7 +53,8 @@ class homeactivity extends StatelessWidget {
 
       drawer: Drawer(
         // for converting it into endDrawer, it needs to be endDrawer: Drawer(
-        child: ListView(
+        child: SafeArea(
+          child: Column(
           children: [
             DrawerHeader(
                 padding: EdgeInsets.all(0),
@@ -75,6 +76,7 @@ class homeactivity extends StatelessWidget {
                 onTap: (){}),
             ListTile(leading:Icon(Icons.add_box),
                 title: Text('Products'),
+                subtitle: Text('BusinessCard, Menu, Banner'),
                 onTap: (){}),
             ListTile(leading:Icon(Icons.reviews_outlined),
                 title: Text('Review'),
@@ -87,8 +89,35 @@ class homeactivity extends StatelessWidget {
                 onTap: (){}),
 
           ],
+      ),
         ),
       ),
+
+
+      /*
+      drawer: Drawer(
+        child: SafeArea(
+          child: Column(
+            children: [
+                ListTile(
+                  onTap: (){
+                    print('TAP');
+                  },
+                  onLongPress: (){
+                    print('Long Press');
+                  },
+                  contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+                  leading: Icon(Icons.add_box),
+                  title: Text('Home'),
+                  subtitle: Text('Welcome, and hello'),
+                  tileColor: Colors.grey,
+                  trailing: Icon(Icons.arrow_forward_outlined),
+                )
+            ],
+          ),
+        ),
+      ),
+      */
 
     );
   }
