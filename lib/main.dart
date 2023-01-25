@@ -19,12 +19,6 @@ class MyApp extends StatelessWidget {
 class AppsHome extends StatelessWidget {
   AppsHome({Key? key}) : super(key: key);
 
-  TextEditingController controllerOne = TextEditingController();
-  TextEditingController controllerTwo = TextEditingController();
-  TextEditingController controllerThree = TextEditingController();
-  TextEditingController controllerFour = TextEditingController();
-  TextEditingController controllerFive = TextEditingController();
-
   /// SnackBar message code
   SnackBarMessage(message, context) {
     return ScaffoldMessenger.of(context).showSnackBar(
@@ -46,7 +40,6 @@ class AppsHome extends StatelessWidget {
     );
 
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -79,71 +72,88 @@ class AppsHome extends StatelessWidget {
               icon: Icon(Icons.add_call)),
           IconButton(
               onPressed: () {
-                SnackBarMessage('Settings', context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => aboutpage(name: 'Rahat',)));
+                //SnackBarMessage('About Us', context);
               },
-              icon: Icon(Icons.settings_applications))
+              icon: Icon(Icons.account_box_outlined))
         ],
       ),
 
       /// Body
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        //crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('HomePage'),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => aboutpage(name: 'Rahat',)));
+            }, child: Text('KnowMore'),)
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-          /// TextFormField and Obscure
-          Container(
-            padding: EdgeInsets.all(10),
-            //margin: EdgeInsets.all(10),
-            //color: Colors.red,
-            child: TextFormField(
-              autovalidateMode: AutovalidateMode.always,
-              validator: (String? value){
-                if(value!.isEmpty)
-                {
-                  return 'Enter your password';
-                }
-                return null;
-              },
-              obscureText: true, /// ObscureText (hide the text -> [...])
-              controller: controllerTwo,
-              onChanged: (value){
-                //print(value);
-              },
-              // onSubmitted: (value){
-              //   //print(value);
-              // },
-              onTap: (){
-                //SnackBarMessage('Pressed', context);
-              },
-              decoration: InputDecoration(
-                hintText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-            ),
-          ),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
-                  foregroundColor: Colors.black87,
-                  elevation: 8,
-                  textStyle: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  )),
-              onPressed: () {
-                print(controllerOne.text);
-                print(controllerTwo.text);
-                //controllerOne.text = 'hassan';
-                MyAlertDialague(context);
-              },
-              child: Text('Sign in')),
-        ],
+class aboutpage extends StatelessWidget {
+  String name;
+  aboutpage({required this.name, Key? key}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('About Us'),
+        centerTitle: true,
       ),
 
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(name),
+            ElevatedButton(
+              onPressed: (){
+              Navigator.pop(context);
+            }, child: Text('Back to HomePage'),),
 
+            ElevatedButton(onPressed: (){
+              //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => contactus()));
+              Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(builder: (context) => contactus()),
+                    (route) => false);
+            }, child: Text('Contact Us'))
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class contactus extends StatelessWidget {
+  const contactus({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          title: Text('Contact Us'),
+          centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Contact Us'),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+            }, child: Text('Back to About Us Page'),)
+          ],
+        ),
+      ),
 
 
     );
   }
 }
+
