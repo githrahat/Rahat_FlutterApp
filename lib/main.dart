@@ -81,13 +81,18 @@ class AppsHome extends StatelessWidget {
 
       /// Body
       body: Center(
-       child: CircularProgressIndicator(
-         strokeWidth: 10,
-         color: Colors.red,
-         backgroundColor: Colors.indigoAccent,
-         value: 0.5,
+        child: SizedBox(
+            width: 200,
+          child: Center(
+           child: LinearProgressIndicator(
+             minHeight: 10,
+             value: .50,
+             color: Colors.deepOrange,
+             backgroundColor: Colors.indigo,
+           )
     ),
-    ),
+        ),
+      ),
     );
   }
 }
