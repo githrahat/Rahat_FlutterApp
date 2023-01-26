@@ -49,13 +49,13 @@ class AppsHome extends StatelessWidget {
       appBar: AppBar(
 
         /// appBar
-        title: Text("Mess App"),
+        title: Text("Home"),
         //titleSpacing: 15,
-        centerTitle: true,
+        //centerTitle: true,
         toolbarOpacity: 1,
         toolbarHeight: 85,
         elevation: 25,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.deepOrange,
 
         /// set action icon in appbar
         actions: [
@@ -72,7 +72,7 @@ class AppsHome extends StatelessWidget {
               icon: Icon(Icons.add_call)),
           IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => aboutpage(name: 'Rahat',)));
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => aboutpage(name: 'Rahat',)));
                 //SnackBarMessage('About Us', context);
               },
               icon: Icon(Icons.account_box_outlined))
@@ -81,78 +81,13 @@ class AppsHome extends StatelessWidget {
 
       /// Body
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('HomePage'),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => aboutpage(name: 'Rahat',)));
-            }, child: Text('KnowMore'),)
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class aboutpage extends StatelessWidget {
-  String name;
-  aboutpage({required this.name, Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('About Us'),
-        centerTitle: true,
-      ),
-
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(name),
-            ElevatedButton(
-              onPressed: (){
-              Navigator.pop(context);
-            }, child: Text('Back to HomePage'),),
-
-            ElevatedButton(onPressed: (){
-              //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => contactus()));
-              Navigator.pushAndRemoveUntil(context,
-                  MaterialPageRoute(builder: (context) => contactus()),
-                    (route) => false);
-            }, child: Text('Contact Us'))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class contactus extends StatelessWidget {
-  const contactus({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: Text('Contact Us'),
-          centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Contact Us'),
-            ElevatedButton(onPressed: (){
-              Navigator.pop(context);
-            }, child: Text('Back to About Us Page'),)
-          ],
-        ),
-      ),
-
-
+       child: CircularProgressIndicator(
+         strokeWidth: 10,
+         color: Colors.red,
+         backgroundColor: Colors.indigoAccent,
+         value: 0.5,
+    ),
+    ),
     );
   }
 }
