@@ -152,6 +152,11 @@ class buisnesscard extends StatelessWidget {
   String name;
   buisnesscard({required this.name, Key? key}) : super(key: key);
 
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,22 +212,44 @@ class buisnesscard extends StatelessWidget {
               subtitle: Text('Swan Design creates stylish, perfect balance of a quality business card at a sensible price', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://cdn.dribbble.com/users/7111344/screenshots/18144613/media/b28a3a8927554f5ae207f1cff47d9dda.jpg?compress=1&resize=400x300'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -235,6 +262,11 @@ class buisnesscard extends StatelessWidget {
 class menucard extends StatelessWidget {
   String name;
   menucard({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -291,24 +323,46 @@ class menucard extends StatelessWidget {
               subtitle: Text('Swan Design creates stylish, colourful, vibrant, traditional and contemporary restaurant menus and a full line of services to help customers', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://img.freepik.com/free-vector/modern-restaurant-menu-fast-food_52683-48982.jpg?w=2000'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
-          ],
+        ],
         ),
       ),
     );
@@ -320,6 +374,11 @@ class menucard extends StatelessWidget {
 class takeawaymenu extends StatelessWidget {
   String name;
   takeawaymenu({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -376,22 +435,44 @@ class takeawaymenu extends StatelessWidget {
               subtitle: Text('Swan Design creates stylish, colourful, vibrant, traditional and contemporary restaurant menus and a full line of services to help customers', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://img.freepik.com/free-vector/burgers-restaurant-menu-template_23-2149005028.jpg?w=2000'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -404,6 +485,11 @@ class takeawaymenu extends StatelessWidget {
 class inmenu extends StatelessWidget {
   String name;
   inmenu({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -460,22 +546,44 @@ class inmenu extends StatelessWidget {
               subtitle: Text('Swan Design creates stylish, colourful, vibrant, traditional and contemporary restaurant menus and a full line of services to help customers', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://img.freepik.com/free-vector/beautiful-food-menu-design-template_23-2149061881.jpg?w=2000'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -488,6 +596,11 @@ class inmenu extends StatelessWidget {
 class logodesign extends StatelessWidget {
   String name;
   logodesign({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -544,22 +657,44 @@ class logodesign extends StatelessWidget {
               subtitle: Text('Here at Swan Design, we take care a logo from an extremely essential pencil sketch to the last print or web prepared fine art.', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://png.pngtree.com/element_our/png/20180912/coffee-time-png_91570.jpg'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -572,6 +707,11 @@ class logodesign extends StatelessWidget {
 class banner extends StatelessWidget {
   String name;
   banner({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -628,22 +768,44 @@ class banner extends StatelessWidget {
               subtitle: Text('As our expansion of the products and services we have now in a position to arrange any signage from now on', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://img.freepik.com/free-psd/digital-marketing-facebook-banner-template_237398-233.jpg?w=2000'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -656,6 +818,11 @@ class banner extends StatelessWidget {
 class festoon extends StatelessWidget {
   String name;
   festoon({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -712,22 +879,44 @@ class festoon extends StatelessWidget {
               subtitle: Text('As our expansion of the products and services we have now in a position to arrange any festoon from now on', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://i.ytimg.com/vi/neXk3we-y6E/maxresdefault.jpg'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -740,6 +929,11 @@ class festoon extends StatelessWidget {
 class leaflet extends StatelessWidget {
   String name;
   leaflet({required this.name, Key? key}) : super(key: key);
+
+  MySnackBar(message, context){
+    return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -796,22 +990,44 @@ class leaflet extends StatelessWidget {
               subtitle: Text('As our expansion of the products and services we have now in a position to arrange any leaflet from now on.', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 15),),
             ),
             Image.network('https://images.template.net/wp-content/uploads/2022/06/Leaflet.jpg'),
-            Container(
-              margin: EdgeInsets.all(10),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      foregroundColor: Colors.white,
-                      elevation: 8,
-                      padding: EdgeInsets.all(20),
-                      textStyle: const TextStyle(
-                        fontWeight: FontWeight.w300,
-                      )),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Go Back')
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Go Back')
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                          foregroundColor: Colors.white,
+                          elevation: 8,
+                          padding: EdgeInsets.all(20),
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w300,
+                          )),
+                      onPressed: () {
+                        MySnackBar('Work going on.', context);
+                      },
+                      child: Text('Know More')
+                  ),
+                ),
+              ],
             ),
           ],
         ),
