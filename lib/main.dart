@@ -28,6 +28,8 @@ class mainApp extends StatelessWidget{
       {"productname":"06. Banner","productdetails":"Good"},
       {"productname":"07. Festoon","productdetails":"Good"},
       {"productname":"08. Leaflet","productdetails":"Good"},
+      {"productname":"09. Flyer","productdetails":"Good"},
+      {"productname":"10. SignBoard","productdetails":"Good"},
 
     ];
 
@@ -104,6 +106,32 @@ class mainApp extends StatelessWidget{
               else if(index == 2){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
               }
+              else if(index == 3){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 4){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 5){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 6){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 7){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 8){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 9){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+              else if(index == 10){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => items(name: 'Rahat',)));
+              }
+
+
             },
             child: Container(
               margin: EdgeInsets.all(10),
@@ -113,9 +141,9 @@ class mainApp extends StatelessWidget{
                 color: Colors.purple,
               ),
               child: ListTile(
-                leading: Icon(Icons.account_box_outlined),
+                leading: Icon(Icons.map_outlined, color: Colors.white,),
                 title: Text(products[index]["productname"]!, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16, color: Colors.white),),
-                subtitle: Text(products[index]["productdetails"]!,),
+                subtitle: Text(products[index]["productdetails"]!,style: TextStyle(color: Colors.white),),
                 trailing: Icon(Icons.arrow_forward_outlined),
               ),
             )
