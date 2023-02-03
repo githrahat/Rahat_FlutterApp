@@ -90,12 +90,7 @@ class productpage extends StatelessWidget{
         ),
       ),
 
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 1,
-          //childAspectRatio: 1.2
-        ),
+      body: ListView.separated(
         itemCount: products.length,
         itemBuilder: (context, index){
           return GestureDetector(
@@ -127,10 +122,26 @@ class productpage extends StatelessWidget{
               },
               child: Container(
                 margin: EdgeInsets.all(10),
-                child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR8TBlMFsOzAnBuYW1cHwl5GlUuXFvo8CiWA&usqp=CAU'),
+
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.purple,
+                ),
+                child: ListTile(
+                  leading: Icon(Icons.map_outlined, color: Colors.white,),
+                  title: Text(products[index]["productname"]!, style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16, color: Colors.white),),
+                  subtitle: Text(products[index]["productdetails"]!,style: TextStyle(color: Colors.white),),
+                  trailing: Icon(Icons.arrow_forward_outlined),
+                ),
               )
           );
-        },
+        }, separatorBuilder: (BuildContext context, int index) {
+        return Divider(
+          thickness: 5,
+          height: 30,
+          color: Colors.grey,
+        );
+      },
       ),
     );
   }
@@ -351,7 +362,7 @@ class menucard extends StatelessWidget {
                 ),
               ],
             ),
-        ],
+          ],
         ),
       ),
     );
