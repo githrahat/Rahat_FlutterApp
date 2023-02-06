@@ -50,18 +50,15 @@ class AppsHome extends StatelessWidget {
           ],
         ),
 
-      // Portrait or Lanscape
-      body: OrientationBuilder(
-        builder: (context, orientation){
-          if(orientation == Orientation.portrait){
-            return Center(child: Text('Portrait'));
-          }
-          else {
-            return Center(child: Text('Lanscape'));
-          }
-        }
+      // it gets large and small when screen is resized
+        // heightFactor and widthFactor starts from, 1 which is equal to 100%
+      body: FractionallySizedBox(
+        heightFactor: 2,
+        widthFactor: .5,
+        child: Container(
+          color: Colors.deepOrange,
+        ),
       )
-
     );
   }
 }
