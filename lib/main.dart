@@ -50,28 +50,17 @@ class AppsHome extends StatelessWidget {
           ],
         ),
 
-      // LayoutBuilder - shows maxwidth, minwidth, maxheight, minheight.
-      // Even if make our screen responsive or small/large that time it shows too.
-      body: LayoutBuilder(
-        builder: (context, constraints){
-          print(constraints.maxWidth);
-          print(constraints.minWidth);
-          print(constraints.maxHeight);
-          print(constraints.minWidth);
-          return Center(
-            child: Column(
-            children:[
-              Text(constraints.maxWidth.toString()),
-              Text(constraints.minWidth.toString()),
-              Text(constraints.maxHeight.toString()),
-              Text(constraints.minHeight.toString()),
-            ]
-            // showing maxwidth, minwidth, maxheight, minheight in screen. Also, whenever we resize our screen small or large maxwidth also changes too.
-
-          )
-          );
+      // Portrait or Lanscape
+      body: OrientationBuilder(
+        builder: (context, orientation){
+          if(orientation == Orientation.portrait){
+            return Center(child: Text('Portrait'));
+          }
+          else {
+            return Center(child: Text('Lanscape'));
+          }
         }
-      ),
+      )
 
     );
   }
