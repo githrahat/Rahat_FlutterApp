@@ -50,14 +50,42 @@ class AppsHome extends StatelessWidget {
           ],
         ),
 
-      // it gets large and small when screen is resized
-        // heightFactor and widthFactor starts from, 1 which is equal to 100%
-      body: FractionallySizedBox(
-        heightFactor: 2,
-        widthFactor: .5,
-        child: Container(
-          color: Colors.deepOrange,
-        ),
+      body: Column(
+        children: [
+          /*It has two properties loose or tight.
+          when in loose, it take space which is specified
+          when in tight, it takes all space.
+          */
+          Flexible(
+            fit: FlexFit.tight,
+            flex: 2,
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.deepOrange,
+            ),
+          ),
+          Flexible(
+            fit: FlexFit.tight,
+            flex: 1,
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.purple,
+            ),
+          )
+
+          // It works just like flexible, difference is its by deafult set in Tight
+          /*
+        Expanded(
+          child: Container(
+          height: 200,
+          width: 200,
+            color: Colors.deepOrange,
+          ),
+        )
+           */
+        ],
       )
     );
   }
