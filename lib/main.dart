@@ -30,12 +30,6 @@ class AppsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // Media Query - to show the width and height of the screen also the aspect ratio.
-    Size size = MediaQuery.of(context).size;
-    print(size.width);
-    print(size.height);
-    print(size.aspectRatio);
-
     return Scaffold(
         appBar: AppBar(
           title: Text("Home Page"),
@@ -56,9 +50,28 @@ class AppsHome extends StatelessWidget {
           ],
         ),
 
-        body:Center(
-          child: Text('Hello App'),
-        )
+      // LayoutBuilder - shows maxwidth, minwidth, maxheight, minheight.
+      // Even if make our screen responsive or small/large that time it shows too.
+      body: LayoutBuilder(
+        builder: (context, constraints){
+          print(constraints.maxWidth);
+          print(constraints.minWidth);
+          print(constraints.maxHeight);
+          print(constraints.minWidth);
+          return Center(
+            child: Column(
+            children:[
+              Text(constraints.maxWidth.toString()),
+              Text(constraints.minWidth.toString()),
+              Text(constraints.maxHeight.toString()),
+              Text(constraints.minHeight.toString()),
+            ]
+            // showing maxwidth, minwidth, maxheight, minheight in screen. Also, whenever we resize our screen small or large maxwidth also changes too.
+
+          )
+          );
+        }
+      ),
 
     );
   }
