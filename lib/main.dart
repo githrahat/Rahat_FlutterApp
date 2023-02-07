@@ -32,7 +32,7 @@ class AppsHome extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Home Page"),
+          title: Text("Responsive Design"),
           //titleSpacing: 15,
           centerTitle: true,
           toolbarOpacity: 1,
@@ -50,42 +50,83 @@ class AppsHome extends StatelessWidget {
           ],
         ),
 
-      body: Column(
-        children: [
-          /*It has two properties loose or tight.
-          when in loose, it take space which is specified
-          when in tight, it takes all space.
-          */
-          Flexible(
-            fit: FlexFit.tight,
-            flex: 2,
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.deepOrange,
-            ),
-          ),
-          Flexible(
-            fit: FlexFit.tight,
-            flex: 1,
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.purple,
-            ),
-          )
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
+                  Text('Alam'),
 
-          // It works just like flexible, difference is its by deafult set in Tight
-          /*
-        Expanded(
-          child: Container(
-          height: 200,
-          width: 200,
-            color: Colors.deepOrange,
+                ],
+              ),
+              ),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+              Text('Rahat'),
+            ],
           ),
-        )
-           */
-        ],
+        ),
       )
     );
   }
