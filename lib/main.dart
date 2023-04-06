@@ -23,16 +23,18 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Time Picker'),
+        title: const Text('Date Picker'),
         actions: [
           IconButton(onPressed: () async{
 
-            ///Time picker
-            final timePicker = await showTimePicker(context: context,
-                initialTime: TimeOfDay.now());
-            print(timePicker);
+            /// Date picker
+            final datePicker = await showDatePicker(context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(1990),
+                lastDate: DateTime(2030));
+            print(datePicker);
 
-          }, icon: const Icon(Icons.watch_later_outlined))
+          }, icon: const Icon(Icons.date_range))
         ],
       ),
     );
