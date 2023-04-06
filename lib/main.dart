@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,59 +11,192 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Homepage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  // TextEditingController controller = TextEditingController();
-  //
-  // List<String> todos = [];
+class Homepage extends StatelessWidget {
+  const Homepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('Todo List'),
+        backgroundColor: Colors.black,
       ),
+      body: Center(
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey
+            ),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const  TodoHomepage()));
+            }, child: const Text('Press for Add Todo')),
+      ),
+    );
+  }
+}
 
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        showModalBottomSheet(
-            context: (context),
-            backgroundColor: Colors.blueGrey,
-            barrierColor: Colors.black87,
-            isScrollControlled: true,
-            isDismissible: true,
-            enableDrag: true,
-            builder: (builder) {
-              return SizedBox(
-                height: 300,
-                child: Column(
-                  children: [
-                    const TextField(
-                      //controller: controller,
-                    ),
-                    ElevatedButton(onPressed: (){
-                      // todos.add(controller.text);
-                      // todos.clear();
-                      // setState(() {});
-                      // Navigator.pop(context);
-                    }, child: const Text('ADD'))
-                  ],
+class TodoHomepage extends StatefulWidget {
+  const TodoHomepage({Key? key}) : super(key: key);
+
+  @override
+  State<TodoHomepage> createState() => _TodoHomepageState();
+}
+
+class _TodoHomepageState extends State<TodoHomepage> {
+
+  List<String> todoList = [];
+  TextEditingController todoController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Todo List'),
+          backgroundColor: Colors.black,
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          focusColor: Colors.blue,
+          foregroundColor: Colors.green,
+          hoverColor: Colors.green,
+          onPressed: (){
+            showModalBottomSheet(
+                context: (context),
+                backgroundColor: Colors.blueGrey.shade200,
+                barrierColor: Colors.black87,
+                isDismissible: true,
+                isScrollControlled: true,
+                enableDrag: true,
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
+                ),
+
+                builder: (builder){
+                  return SizedBox(
+                      height: 300,
+                      child: Column(
+                        children: [
+                          Form(
+                            key: formKey,
+                            child: Container(
+                              padding: const EdgeInsets.all(20),
+                              //margin: EdgeInsets.all(10),
+                              child: TextFormField(
+                                controller: todoController,
+                                validator: (String? value){
+                                  if(value?.trim().isEmpty??true){
+                                    return 'Add something';
+                                  }
+                                  return null;
+                                },
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                decoration: const InputDecoration(
+                                    hintText: 'ADD',
+                                    border: OutlineInputBorder()
+                                ),
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.black87),
+                              onPressed: () {
+                                if (formKey.currentState!.validate()) {
+                                  todoList.add(todoController.text);
+                                  todoController.clear();
+                                  setState(() {});
+                                  Navigator.pop(context);
+                                }
+                              },
+                              child: const Text('ADD'))
+                        ],
+                      ));
+
+                }
+            );
+
+
+          },
+          child: const Icon(Icons.add),),
+
+        body: Scrollbar(
+          child: ListView.separated(
+            itemCount: todoList.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ListData()));
+                  },
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 100,
+                        child: ListTile(
+                          title: Text(todoList[index]),
+                          tileColor: Colors.blueGrey.shade300,
+                          leading: CircleAvatar(
+                            foregroundColor: Colors.red.shade400,
+                            child: const Icon(Icons.file_copy_outlined),
+                          ),
+                        ),
+                      ),
+
+                      /// Adding Spacer for create space between widgets
+                      const Spacer(
+                        flex: 15,
+                      ),
+                      Expanded(
+                        flex: 20,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green
+                            ),
+                            onPressed: () {
+                              todoList.removeAt(index);
+                              setState(() {});
+                            },
+                            child: const SizedBox(
+                                height: 55,
+                                child: Icon(Icons.delete_outlined))),
+                      )
+                    ],
+                  ),
                 ),
               );
-            }
-        );
-      },child: const Icon(Icons.add),),
+            },
+            separatorBuilder: (context, index) {
+              return const Divider(
+                height: 10,
+                thickness: 2,
+                color: Colors.blueGrey,
+              );
+            },
+          ),
+        ));
+  }
+}
+
+class ListData extends StatelessWidget {
+  const ListData({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Todo List'),
+        backgroundColor: Colors.black,
+      ),
+      body: const Center(
+        child: Text('New Screen'),
+      ),
     );
   }
 }
