@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 main(){
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,61 +11,59 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CounterApp(),
+      home: HomePage(),
     );
   }
 }
 
-class CounterApp extends StatefulWidget {
-  const CounterApp({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<CounterApp> createState() => _CounterAppState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _CounterAppState extends State<CounterApp> {
-  int count = 0;
+class _HomePageState extends State<HomePage> {
+
+  // TextEditingController controller = TextEditingController();
+  //
+  // List<String> todos = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter'),
+        title: const Text('Home Page'),
       ),
 
-      floatingActionButton:
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          FloatingActionButton(
-            child: const Icon(Icons.remove),
-            onPressed: (){
-              if (count>0) {
-                count--;
-                count.toString();
-                setState(() {});
-              }
-            },
-          ),
-          FloatingActionButton(
-            child: const Icon(Icons.add),
-            onPressed: (){
-              count++;
-              count.toString();
-              setState(() {});
-            },
-          ),
-        ],
-      ),
-      body: Center(
-          child:
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('$count',style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-            ],
-          )
-      ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        showModalBottomSheet(
+            context: (context),
+            backgroundColor: Colors.blueGrey,
+            barrierColor: Colors.black87,
+            isScrollControlled: true,
+            isDismissible: true,
+            enableDrag: true,
+            builder: (builder) {
+              return SizedBox(
+                height: 300,
+                child: Column(
+                  children: [
+                    const TextField(
+                      //controller: controller,
+                    ),
+                    ElevatedButton(onPressed: (){
+                      // todos.add(controller.text);
+                      // todos.clear();
+                      // setState(() {});
+                      // Navigator.pop(context);
+                    }, child: const Text('ADD'))
+                  ],
+                ),
+              );
+            }
+        );
+      },child: const Icon(Icons.add),),
     );
   }
 }
