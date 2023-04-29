@@ -41,6 +41,9 @@ dependencies:
   http: ^0.13.5
   firebase_storage: ^11.1.0
   path_provider: ^2.0.14
+  google_maps_flutter: ^2.2.5
+  geolocator: ^9.0.2
+
 
 
 
