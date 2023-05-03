@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_project/UI/Screens/home_screen.dart';
+import 'package:flutter_firebase_project/UI/Screens/email_verification_screen.dart';
 import 'package:get/get.dart';
 import '../utils/app_colors.dart';
 
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 2)).then((value){
       print('rrr');
-      Get.to(const HomeScreen());
+      Get.to(const EmailVerificationScreen());
     });
   }
   @override
