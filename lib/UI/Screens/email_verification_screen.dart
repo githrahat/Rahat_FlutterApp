@@ -31,7 +31,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
             Text('Please Enter Your Email Address:',
               style: subtitleTextStyle,
             ),
-            const SizedBox(height: 16,),
+            const SizedBox(height: 24,),
             CommonTextField(
               controller: TextEditingController(), validator: (String? value) {  },
               hinttext: 'Email Address',
