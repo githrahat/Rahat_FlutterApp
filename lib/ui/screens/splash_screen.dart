@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: ScreenBackground(
-        widget: Center(
+        child: Center(
           child: SvgPicture.asset(
         'assets/images/logo.svg',
         width: 180,

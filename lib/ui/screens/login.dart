@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/ui/screens/sign_up_screen.dart';
 import 'package:flutter_project/ui/widgets/screen_background_widget.dart';
 
+import '../utils/text_below_button_styles.dart';
 import '../utils/text_styles.dart';
 import '../widgets/app_elevated_button.dart';
 import '../widgets/app_text_field_widget.dart';
@@ -17,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ScreenBackground(
-        widget: Padding(
+        child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,18 +52,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               )
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("Don't have an account?"),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Sign Up',
-                      style: TextStyle(color: Colors.green),
-                    ),
-                  )
-                ],
+              text_below_below_styles(
+                text1: "Don't have account?",
+                text2: 'Sign up',
+                ontap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpScreen()));
+                },
               )
             ],
           ),
@@ -70,3 +69,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
