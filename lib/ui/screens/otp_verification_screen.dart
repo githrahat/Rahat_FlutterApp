@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_project/ui/screens/reset_password_screen.dart';
 import 'package:flutter_project/ui/widgets/app_elevated_button.dart';
 import 'package:flutter_project/ui/widgets/screen_background_widget.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-
 import '../utils/text_below_button_styles.dart';
 import '../utils/text_styles.dart';
 import 'login.dart';
@@ -58,7 +58,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     activeColor: Colors.blueAccent,
                     inactiveColor: Colors.blueAccent
                   ),
-                  animationDuration: Duration(milliseconds: 300),
+                  animationDuration: const Duration(milliseconds: 300),
                   backgroundColor: Colors.transparent,
                   enableActiveFill: true,
                   onCompleted: (v) {
@@ -79,14 +79,16 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                AppElevatedButton(child: const Text('Verify'), onTap: (){}),
+                AppElevatedButton(child: const Text('Verify'), onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordScreen()));
+                }),
                 const SizedBox(height: 8),
                 text_below_below_styles(
                   text1: 'Have account?',
                   text2: 'Sign in',
                   ontap: () {
                     Navigator.pushAndRemoveUntil(
-                        context, MaterialPageRoute(builder: (context) => LoginScreen()), (route) => false);
+                        context, MaterialPageRoute(builder: (context) => const LoginScreen()), (route) => false);
                   },
                 )
               ],
